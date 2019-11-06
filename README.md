@@ -1,10 +1,12 @@
 <p align="center"><img src="https://avatars1.githubusercontent.com/u/43827489?s=400&u=45ac0ac47d40b6d8f277c96bdf00244c10508aef&v=4"/></p>
-![travis](https://badgen.net/travis/nestjsx/automapper)
-![bundlephobia](https://badgen.net/bundlephobia/minzip/nestjsx-automapper)
-![downloads](https://badgen.net/npm/dt/nestjsx-automapper)
-![npm](https://badgen.net/npm/v/nestjsx-automapperr)
-![license](https://badgen.net/github/license/nestjsx/automapper)
-[![Coverage Status](https://coveralls.io/repos/github/nestjsx/automapper/badge.svg?branch=master)](https://coveralls.io/github/nestjsx/automapper?branch=master)
+<p align="center">
+    <a href="https://badgen.net/travis/nestjsx/automapper"><img src="https://badgen.net/travis/nestjsx/automapper" alt="travis"/></a>
+    <a href="https://badgen.net/npm/v/nestjsx-automapper"><img src="https://badgen.net/npm/v/nestjsx-automapper" alt="npm"/></a>
+    <a href="https://badgen.net/npm/dt/nestjsx-automapper"><img src="https://badgen.net/npm/dt/nestjsx-automapper" alt="downloads"/></a>
+    <a href="https://badgen.net/bundlephobia/minzip/nestjsx-automapper"><img src="https://badgen.net/bundlephobia/minzip/nestjsx-automapper" alt="bundlephobia"/></a>
+    <a href="https://badgen.net/github/license/nestjsx/automapper"><img src="https://badgen.net/github/license/nestjsx/automapper" alt="license"/></a>
+    <a href="https://coveralls.io/repos/github/nestjsx/automapper/badge.svg?branch=master"><img src="https://coveralls.io/repos/github/nestjsx/automapper/badge.svg?branch=master" alt="coveralls"/></a>
+</p>
 <h1 align="center">Nest Automapper</h1>
 <p align="center">A wrapper around <a href="https://github.com/nartc/mapper">@nartc/automapper</a> to be used with <strong>NestJS</strong> as a <code>Module</code>.</p>
 

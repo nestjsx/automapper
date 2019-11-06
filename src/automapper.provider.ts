@@ -30,17 +30,17 @@ export const forFeatureProviders = (
   options: AutomapperModuleFeatureOptions
 ): Provider[] => {
   const token = getMapperToken(options ? options.name : '');
-  const mapper = MapperMap.has(token)
+  const _mapper = MapperMap.has(token)
     ? (MapperMap.get(token) as AutoMapper)
     : new AutoMapper();
 
-  options.profiles.forEach(mapper.addProfile.bind(mapper));
-  !MapperMap.has(token) && MapperMap.set(token, mapper);
+  options.profiles.forEach(_mapper.addProfile.bind(_mapper));
+  !MapperMap.has(token) && MapperMap.set(token, _mapper);
 
   return [
     {
       provide: token,
-      useValue: mapper,
+      useValue: _mapper,
     },
   ];
 };

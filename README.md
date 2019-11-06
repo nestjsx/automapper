@@ -12,6 +12,8 @@
 
 ## Documentations
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/nestjsx/automapper.svg)](https://greenkeeper.io/)
+
 This module is a wrapper around `@nartc/automapper` so all usage documentations should be referenced at the link below. 
 
 Github Pages [https://nartc.github.io/mapper/](https://nartc.github.io/mapper/)

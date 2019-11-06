@@ -8,9 +8,9 @@ import { getMapperToken } from './utils/getMapperToken';
 import { MAPPER_MAP, MapperMap } from './utils/mapperMap';
 
 export const forRootProviders = (
+  mapper: AutoMapper,
   options?: AutomapperModuleRootOptions
 ): Provider[] => {
-  const mapper = new AutoMapper();
   const token = getMapperToken(options ? options.name : '');
   !MapperMap.has(token) && MapperMap.set(token, mapper);
 

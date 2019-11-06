@@ -35,11 +35,68 @@ class MockProfile extends MappingProfileBase {
 class MockModule {}
 
 @Module({
+  imports: [
+    AutomapperModule.forRoot({
+      config: cfg => {
+        cfg.addProfile(new MockProfile());
+      },
+    }),
+  ],
+})
+class MockModuleWithConfig {}
+
+@Module({
   imports: [AutomapperModule.forFeature({ profiles: [new MockProfile()] })],
 })
 class MockSubModule {}
 
-describe('AutoMapper test', () => {
+describe('AutomapperModule - with config', () => {
+  let moduleFixture: TestingModule;
+  let mapper: AutoMapper;
+  let mapperMap: Map<string, AutoMapper>;
+
+  beforeAll(async () => {
+    moduleFixture = await Test.createTestingModule({
+      imports: [MockModuleWithConfig],
+    }).compile();
+    mapperMap = moduleFixture.get<Map<string, AutoMapper>>(MAPPER_MAP);
+    mapper = moduleFixture.get<AutoMapper>(getMapperToken());
+  });
+
+  afterAll(() => {
+    mapper.dispose();
+  });
+
+  it('AutomapperModule has been initialized with config', () => {
+    expect(mapperMap.size).toBeGreaterThan(0);
+    expect(mapper).toBeTruthy();
+    expect(JSON.stringify(mapper)).toEqual(
+      JSON.stringify(mapperMap.get(getMapperToken()))
+    );
+  });
+
+  it('AutomapperModule - map with config', () => {
+    const _mock = new Mock();
+    _mock.foo = 'baz';
+
+    const vm = mapper.map(_mock, MockVm);
+    expect(vm).toBeTruthy();
+    expect(vm.bar).toEqual(_mock.foo);
+    expect(vm).toBeInstanceOf(MockVm);
+  });
+
+  it('AutomapperModule - reverseMap with config', () => {
+    const _mockVm = new MockVm();
+    _mockVm.bar = 'should be foo';
+
+    const _mock = mapper.map(_mockVm, Mock);
+    expect(_mock).toBeTruthy();
+    expect(_mock).toBeInstanceOf(Mock);
+    expect(_mock.foo).toEqual(_mockVm.bar);
+  });
+});
+
+describe('AutoMapperModuke', () => {
   let moduleFixture: TestingModule;
   let mapper: AutoMapper;
   let mapperMap: Map<string, AutoMapper>;

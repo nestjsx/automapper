@@ -22,7 +22,7 @@ export class AutomapperModule {
     const mapper = new AutoMapper();
 
     options && options.config && mapper.initialize(options.config);
-    const providers = forRootProviders(options);
+    const providers = forRootProviders(mapper, options);
 
     return {
       module: AutomapperModule,
@@ -38,7 +38,7 @@ export class AutomapperModule {
    * @param {AutomapperModuleFeatureOptions} options
    */
   static forFeature(options: AutomapperModuleFeatureOptions): DynamicModule {
-    if (!options || (options && !options.profiles)) {
+    if (!options || (options && !options.profiles.length)) {
       const message = 'AutomapperModuleFeatureOptions.profiles is empty';
       this.logger.error(message);
       throw new Error(message);

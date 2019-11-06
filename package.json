@@ -78,7 +78,7 @@
       "/test/"
     ],
     "collectCoverageFrom": [
-      "src/automapper.{js,ts}"
+      "src/automapper.{module,provider}.{js,ts}"
     ]
   },
   "devDependencies": {

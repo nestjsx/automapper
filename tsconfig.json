@@ -20,6 +20,8 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "baseUrl": "./",
     "paths": {
       "*": ["src/*", "node_modules/*"]

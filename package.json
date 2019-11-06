@@ -1,6 +1,6 @@
 {
-  "name": "nest-automapper",
-  "version": "0.1.0",
+  "name": "nestjsx-automapper",
+  "version": "0.0.0-development",
   "license": "MIT",
   "author": "Chau Tran",
   "main": "dist/index.js",
@@ -9,16 +9,33 @@
   "files": [
     "dist"
   ],
+  "keywords": [
+    "nestjs",
+    "automapper",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nestjsx/automapper.git"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint"
+    "build:docs": "typedoc --out docs --target es6 --theme minimal --mode file src",
+    "test": "tsdx test --no-cache",
+    "test:cov": "tsdx test --coverage",
+    "lint": "tsdx lint src && lint-staged",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release",
+    "deploy-docs": "ts-node tools/gh-pages",
+    "report-coverage": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
-  "peerDependencies": {},
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "npm run test && git add . && npm run lint"
     }
   },
   "prettier": {
@@ -27,11 +44,70 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "{src}/**/*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+    ],
+    "collectCoverageFrom": [
+      "src/automapper.{js,ts}"
+    ]
+  },
   "devDependencies": {
-    "@types/jest": "^24.0.21",
-    "husky": "^3.0.9",
-    "tsdx": "^0.11.0",
-    "tslib": "^1.10.0",
-    "typescript": "^3.6.4"
+    "@commitlint/cli": "8.2.0",
+    "@commitlint/config-conventional": "8.2.0",
+    "@nestjs/common": "6.8.5",
+    "@nestjs/core": "6.8.5",
+    "@nestjs/testing": "6.8.5",
+    "@types/jest": "24.0.21",
+    "commitizen": "4.0.3",
+    "coveralls": "3.0.7",
+    "cz-conventional-changelog": "3.0.2",
+    "husky": "3.0.9",
+    "lint-staged": "9.4.2",
+    "prettier": "1.18.2",
+    "reflect-metadata": "0.1.13",
+    "semantic-release": "^15.13.30",
+    "shelljs": "0.8.3",
+    "ts-node": "8.4.1",
+    "tsdx": "0.11.0",
+    "tslib": "1.10.0",
+    "typedoc": "0.15.0",
+    "typescript": "3.7.2"
+  },
+  "dependencies": {
+    "@nartc/automapper": "^1.1.8"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "~6.8.5",
+    "reflect-metadata": "~0.1.13"
   }
 }

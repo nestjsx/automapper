@@ -1,4 +1,4 @@
-import { AutoMapperConfiguration, MappingProfile } from '@nartc/automapper';
+import { AutoMapperConfiguration } from '@nartc/automapper';
 
 export interface AutomapperModuleRootOptions {
   /**
@@ -7,20 +7,6 @@ export interface AutomapperModuleRootOptions {
    * @param {AutoMapperConfiguration} cfg
    */
   config?: (cfg: AutoMapperConfiguration) => void;
-
-  /**
-   * Name of the AutoMapper instance
-   *
-   * @default default
-   */
-  name?: string;
-}
-
-export interface AutomapperModuleFeatureOptions {
-  /**
-   * An array of MappingProfile to be added to the AutoMapper instance
-   */
-  profiles: Array<MappingProfile>;
 
   /**
    * Name of the AutoMapper instance

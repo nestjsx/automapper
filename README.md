@@ -69,16 +69,14 @@ Both options are optional. If you pass in `config` and configure your `AutoMappe
 
 2. `AutoMapper` has a concept of `Profile`. A `Profile` is a class that will house some specific mappings related to a specific domain model. Eg: `User` mappings will be housed by `UserProfile`. Refer to [@nartc/automapper: usage](https://github.com/nartc/mapper#usage) for more information regarding `Profile`.
 
-`NestJS` recommends you to separate features/domains in your application into `Modules`, in each module you would import/declare other modules/parts that are related to that Module. `AutomapperModule` also has a static method `forFeature` which should be used in such a feature module. `forFeature` accepts an `AutomapperModuleFeatureOptions` which has:
-- `profiles`: An array of `Profiles` related to this module, and this will be added to an `AutoMapper` instance.
-- `name`: Decide which `AutoMapper` instance to add these profiles to. Default to `"default"`
+`nestjsx-automapper` exposes a `@Profile()` to decorate your `Profile` class.
 
 ```typescript 
-@Module({
-  imports: [AutomapperModule.forFeature({profiles: [new UserProfile()]})]
-})
-export class UserModule {}
+@Profile()
+class UserProfile extends MappingProfileBase {}
 ```
+
+`@Profile(name?: string)` takes in an optional `name` parameter, this is the `name` of the `AutoMapper` instance you want to add this Profile on to.
 
 3. Inject an instance of `AutoMapper` in your `Service`:
 

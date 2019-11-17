@@ -1,14 +1,14 @@
 import { AutoMapper } from '@nartc/automapper';
-import { DynamicModule, Global, Logger, Module } from '@nestjs/common';
-import { forFeatureProviders, forRootProviders } from './automapper.provider';
-import {
-  AutomapperModuleFeatureOptions,
-  AutomapperModuleRootOptions,
-} from './interfaces';
+import { DynamicModule, Logger, Module } from '@nestjs/common';
+import { OnModuleInit } from '@nestjs/common/interfaces';
+import { AutomapperExplorer } from './automapper.explorer';
+import { forRootProviders } from './automapper.provider';
+import { AutomapperModuleRootOptions } from './interfaces';
+import { MAPPER_MAP, MapperMap } from './utils/mapperMap';
+import { PROFILE_MAP, ProfileMap } from './utils/profileMap';
 
-@Global()
 @Module({})
-export class AutomapperModule {
+export class AutomapperModule implements OnModuleInit {
   private static readonly logger: Logger = new Logger('AutomapperModule');
 
   /**
@@ -26,29 +26,20 @@ export class AutomapperModule {
 
     return {
       module: AutomapperModule,
-      providers,
+      providers: [
+        ...providers,
+        AutomapperExplorer,
+        { provide: PROFILE_MAP, useValue: ProfileMap },
+        { provide: MAPPER_MAP, useValue: MapperMap },
+        { provide: Logger, useValue: this.logger },
+      ],
       exports: providers,
     };
   }
 
-  /**
-   * Add to the AutoMapper instance a list of MappingProfiles. By default, the instance with name "default" will be
-   * used.
-   *
-   * @param {AutomapperModuleFeatureOptions} options
-   */
-  static forFeature(options: AutomapperModuleFeatureOptions): DynamicModule {
-    if (!options || (options && !options.profiles.length)) {
-      const message = 'AutomapperModuleFeatureOptions.profiles is empty';
-      this.logger.error(message);
-      throw new Error(message);
-    }
-    const providers = forFeatureProviders(options);
-    return {
-      module: AutomapperModule,
-      imports: [AutomapperModule],
-      providers,
-      exports: providers,
-    };
+  constructor(private readonly explorer: AutomapperExplorer) {}
+
+  onModuleInit(): void {
+    this.explorer.explore();
   }
 }

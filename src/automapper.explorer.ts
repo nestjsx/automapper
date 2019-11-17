@@ -36,6 +36,6 @@ export class AutomapperExplorer {
       return;
     }
 
-    mapper.addProfile(new value());
+    mapper.addProfile(value);
   }
 }

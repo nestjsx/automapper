@@ -18,11 +18,8 @@ class MockVm {
 
 @Profile()
 class MockProfile extends MappingProfileBase {
-  constructor() {
+  constructor(mapper: AutoMapper) {
     super();
-  }
-
-  configure(mapper: AutoMapper): void {
     mapper
       .createMap(Mock, MockVm)
       .forMember(d => d.bar, opts => opts.mapFrom(s => s.foo))
@@ -37,11 +34,8 @@ class Another {
 
 @Profile()
 class AnotherProfile extends MappingProfileBase {
-  constructor() {
+  constructor(mapper: AutoMapper) {
     super();
-  }
-
-  configure(mapper: AutoMapper): void {
     mapper.createMap(Another, MockVm);
   }
 }

@@ -977,10 +977,10 @@
     mkdirp "^0.5.1"
     rimraf "^2.5.2"
 
-"@nartc/automapper@^1.1.8":
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/@nartc/automapper/-/automapper-1.1.8.tgz#87d04676ea264e05709edbba2e07af3dcbb6b451"
-  integrity sha512-RvTDUKzzYszLXZv4baVbHCNKENvAKt9LcTs7IAAEJvbb3aQbchDYMyHWAeGZZY56jXI7UgXdYmV9Z8fh4IPROg==
+"@nartc/automapper@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@nartc/automapper/-/automapper-2.0.0.tgz#465a29b389e9992faa1c90eced04c840640f550a"
+  integrity sha512-qF1SV7syZaS2aOaIZqyjogb/h8GJC5iXhtJTlM9GW5BrSVbd/qpvZeiapgyEoC3Ez5gvOsfElvSKyH0ym8nnvw==
   dependencies:
     class-transformer "0.2.3"
     lodash.set "4.3.2"

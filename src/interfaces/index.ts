@@ -1,2 +1,2 @@
-export { AutoMapper, MappingProfileBase } from '@nartc/automapper';
+export { AutoMapper, MappingProfileBase, ExposedType } from '@nartc/automapper';
 export * from './automapper-configuration.interface';

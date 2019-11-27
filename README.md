@@ -88,6 +88,8 @@ export class UserModule {}
 
 ```
 
+**Note: If you don't want to use a separate file for your Profile, then this import step can be skipped.**
+
 3. Inject an instance of `AutoMapper` in your `Service`:
 
 ```typescript

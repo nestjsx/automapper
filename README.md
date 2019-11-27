@@ -78,6 +78,16 @@ class UserProfile extends MappingProfileBase {}
 
 `@Profile(name?: string)` takes in an optional `name` parameter, this is the `name` of the `AutoMapper` instance you want to add this Profile on to.
 
+Even though we use `Decorator` to add the `Profile` to `AutoMapper` instance automatically, things aren't really that automatic without having `TypeScript` to execute the file. We need to import the file somewhere, I'd pick the feature module.
+
+```typescript
+import './user.profiles'; // <-- add this 
+
+@Module({...})
+export class UserModule {}
+
+```
+
 3. Inject an instance of `AutoMapper` in your `Service`:
 
 ```typescript

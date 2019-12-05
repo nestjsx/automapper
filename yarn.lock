@@ -990,10 +990,10 @@
     mkdirp "^0.5.1"
     rimraf "^2.5.2"
 
-"@nartc/automapper@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@nartc/automapper/-/automapper-2.0.0.tgz#465a29b389e9992faa1c90eced04c840640f550a"
-  integrity sha512-qF1SV7syZaS2aOaIZqyjogb/h8GJC5iXhtJTlM9GW5BrSVbd/qpvZeiapgyEoC3Ez5gvOsfElvSKyH0ym8nnvw==
+"@nartc/automapper@2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@nartc/automapper/-/automapper-2.0.2.tgz#dd36dbc3329e5dcefd974221005c8a51cf3077de"
+  integrity sha512-ex7tfdKdgIIcPwYTS34Pbl/hsjiifaO/bxJelIB6Qa0wuo3tfX/D9OXWduwuYl9qGPBjgdKYEFhfjn+C+FXwgA==
   dependencies:
     class-transformer "0.2.3"
     lodash.set "4.3.2"
@@ -1018,10 +1018,10 @@
     object-hash "2.0.0"
     uuid "3.3.3"
 
-"@nestjs/testing@^6.10.1":
-  version "6.10.1"
-  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-6.10.1.tgz#b55675ab8e76b230320248b5f32e50961d6154c3"
-  integrity sha512-voEyayvSjlz3SIV0bLfsEJG9DBmTZsEWgqAeQ/zuaIVLfAclHovtGMyxf+nEbfFAuylHGiHy3H5e8Hv58uX0Ow==
+"@nestjs/testing@6.10.7":
+  version "6.10.7"
+  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-6.10.7.tgz#0e7d782a951c5c8e9b39a8796eb645c831c9a2a6"
+  integrity sha512-ZlhcBTKmo9F+iw/v6fo60ZxnPqonE5XNY+lOhwpe1Dvq+jOFUmLq7b0tI8tInueeoFYnjToFPJUz4p+ErVMw1Q==
   dependencies:
     optional "0.1.4"
 

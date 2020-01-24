@@ -1048,10 +1048,10 @@
     object-hash "2.0.0"
     uuid "3.3.3"
 
-"@nestjs/testing@6.11.0":
-  version "6.11.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-6.11.0.tgz#b523fed84fe0def098662895818705761c8444c6"
-  integrity sha512-NwvLtm4aMwdrGPUWKvHbnII5F3CTeJ0BL1Fd2tfUg0D8xqYQdG4R+T/SCeB4FMe2STRLydcE1rrOGxek6N4Hxw==
+"@nestjs/testing@6.11.1":
+  version "6.11.1"
+  resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-6.11.1.tgz#505ac160c1144889b72c5e974858ab3b5ff24b5b"
+  integrity sha512-Y4jgZONBbU07gML3pIVBC/dI5Am2uDVRQ1Gg6rPV9OFpmXJgSMNZTLsqOfrgUuIRV61PTuD7emzn6E91ussdxw==
   dependencies:
     optional "0.1.4"
     tslib "1.10.0"

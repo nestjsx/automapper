@@ -88,7 +88,7 @@
     "@nestjs/common": "^6.10.4",
     "@nestjs/core": "^6.10.4",
     "@nestjs/testing": "6.11.6",
-    "@types/jest": "^25.1.0",
+    "@types/jest": "25.1.1",
     "commitizen": "^4.0.3",
     "coveralls": "^3.0.7",
     "cz-conventional-changelog": "^3.0.2",

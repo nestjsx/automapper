@@ -1030,10 +1030,10 @@
     mkdirp "^0.5.1"
     rimraf "^2.5.2"
 
-"@nartc/automapper@4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@nartc/automapper/-/automapper-4.0.0.tgz#5f2de98222c8ebbeb3b369aed5e6a30b054586ec"
-  integrity sha512-kjp01EiuqmvIlVUhgBbvhgHtUXO52T5H3jc/qipBbeyL0T3F7k4QmAyO8Xm6OC1he1jsstbv1a3HHah1cDLf3A==
+"@nartc/automapper@4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@nartc/automapper/-/automapper-4.0.1.tgz#01ee3dd65fc3fce20c5ba1d13abf5386b1a9873e"
+  integrity sha512-KPoJephrfEtp5B3Y4Ebie51H8QkM6w6S713O+IKbZt3XPjxNCHX+5lHNFMEbqC/TZpXnj/AJ1fdaAxZfI1w4/w==
   dependencies:
     class-transformer "0.2.3"
     lodash.set "4.3.2"
@@ -1332,12 +1332,13 @@
     "@types/istanbul-lib-coverage" "*"
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@^25.1.0":
-  version "25.1.0"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-25.1.0.tgz#b3955aa0be6057c65c0bfb11ac2ef1e078598d76"
-  integrity sha512-MYX8LpNQboef1NDZQTchM5poL8WITRVG/4/1XLK/Xsamjptsvgb8ELTRoXixBARi+a81mMT4n2hooqaydEOE9A==
+"@types/jest@25.1.1":
+  version "25.1.1"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-25.1.1.tgz#dcf65a8ee315b91ad39c0d358ae0ddc5602ab0e9"
+  integrity sha512-bKSZJYZJLzwaoVYNN4W3A0RvKNYsrLm5tsuXaMlfYDxKf4gY2sFrMYneCugNQWGg1gjPW+FHBwNrwPzEi4sIsw==
   dependencies:
     jest-diff "^25.1.0"
+    pretty-format "^25.1.0"
 
 "@types/json-schema@^7.0.3":
   version "7.0.3"

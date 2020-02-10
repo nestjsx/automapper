@@ -83,32 +83,32 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-conventional": "^8.2.0",
-    "@nestjs/common": "^6.10.4",
-    "@nestjs/core": "^6.10.4",
+    "@commitlint/cli": "8.3.5",
+    "@commitlint/config-conventional": "8.3.4",
+    "@nestjs/common": "6.11.6",
+    "@nestjs/core": "6.11.6",
     "@nestjs/testing": "6.11.6",
-    "@types/jest": "25.1.1",
-    "commitizen": "^4.0.3",
-    "coveralls": "^3.0.7",
-    "cz-conventional-changelog": "^3.0.2",
-    "husky": "^4.0.2",
-    "lint-staged": "^10.0.3",
-    "prettier": "^1.19.1",
-    "reflect-metadata": "^0.1.13",
-    "semantic-release": "^17.0.0",
-    "shelljs": "^0.8.3",
-    "ts-node": "^8.5.2",
-    "tsdx": "^0.12.0",
-    "tslib": "^1.10.0",
-    "typedoc": "^0.16.0",
-    "typescript": "~3.7.2"
+    "@types/jest": "25.1.2",
+    "commitizen": "4.0.3",
+    "coveralls": "3.0.9",
+    "cz-conventional-changelog": "3.1.0",
+    "husky": "4.2.1",
+    "lint-staged": "10.0.7",
+    "prettier": "1.19.1",
+    "reflect-metadata": "0.1.13",
+    "semantic-release": "17.0.2",
+    "shelljs": "0.8.3",
+    "ts-node": "8.6.2",
+    "tsdx": "0.12.3",
+    "tslib": "1.10.0",
+    "typedoc": "0.16.9",
+    "typescript": "3.7.5"
   },
   "dependencies": {
     "@nartc/automapper": "5.0.0"
   },
   "peerDependencies": {
-    "@nestjs/common": "^6.10.1",
+    "@nestjs/common": "^6.11.6",
     "reflect-metadata": "^0.1.13"
   }
 }

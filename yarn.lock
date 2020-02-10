@@ -1030,12 +1030,11 @@
     mkdirp "^0.5.1"
     rimraf "^2.5.2"
 
-"@nartc/automapper@4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@nartc/automapper/-/automapper-4.0.1.tgz#01ee3dd65fc3fce20c5ba1d13abf5386b1a9873e"
-  integrity sha512-KPoJephrfEtp5B3Y4Ebie51H8QkM6w6S713O+IKbZt3XPjxNCHX+5lHNFMEbqC/TZpXnj/AJ1fdaAxZfI1w4/w==
+"@nartc/automapper@5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@nartc/automapper/-/automapper-5.0.0.tgz#0ee008aef6dc2796d08eff784c82820e8c7f2359"
+  integrity sha512-mOdH6kkFdmQTJvJxTWmRUm+rNduHG3FHhxqfalZPd4axjN1vBnE7q6SScCp7f9x/r3BsMUl/cCkr0r+IDn0oBg==
   dependencies:
-    class-transformer "0.2.3"
     lodash.set "4.3.2"
 
 "@nestjs/common@^6.10.4":
@@ -2333,11 +2332,6 @@ cidr-regex@^2.0.10:
   integrity sha512-sB3ogMQXWvreNPbJUZMRApxuRYd+KoIo4RGQ81VatjmMW6WJPo+IJZ2846FGItr9VzKo5w7DXzijPLGtSd0N3Q==
   dependencies:
     ip-regex "^2.1.0"
-
-class-transformer@0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/class-transformer/-/class-transformer-0.2.3.tgz#598c92ca71dcca73f91ccb875d74a3847ccfa32d"
-  integrity sha512-qsP+0xoavpOlJHuYsQJsN58HXSl8Jvveo+T37rEvCEeRfMWoytAyR0Ua/YsFgpM6AZYZ/og2PJwArwzJl1aXtQ==
 
 class-utils@^0.3.5:
   version "0.3.6"

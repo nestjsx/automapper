@@ -84,8 +84,8 @@
   "devDependencies": {
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
-    "@nestjs/common": "7.0.1",
-    "@nestjs/core": "7.0.1",
+    "@nestjs/common": "7.0.2",
+    "@nestjs/core": "7.0.2",
     "@nestjs/testing": "7.0.1",
     "@types/jest": "25.1.4",
     "commitizen": "4.0.3",

@@ -89,7 +89,7 @@
     "@nestjs/testing": "7.0.3",
     "@types/jest": "25.1.4",
     "commitizen": "4.0.3",
-    "coveralls": "3.0.9",
+    "coveralls": "3.0.10",
     "cz-conventional-changelog": "3.1.0",
     "husky": "4.2.3",
     "lint-staged": "10.0.8",

@@ -89,7 +89,7 @@
     "@nestjs/testing": "7.0.3",
     "@types/jest": "25.1.4",
     "commitizen": "4.0.3",
-    "coveralls": "3.0.9",
+    "coveralls": "3.0.11",
     "cz-conventional-changelog": "3.1.0",
     "husky": "4.2.3",
     "lint-staged": "10.0.8",
@@ -98,13 +98,13 @@
     "semantic-release": "17.0.4",
     "shelljs": "0.8.3",
     "ts-node": "8.7.0",
-    "tsdx": "0.12.3",
+    "tsdx": "0.13.0",
     "tslib": "1.11.1",
     "typedoc": "0.17.1",
     "typescript": "3.8.3"
   },
   "dependencies": {
-    "@nartc/automapper": "5.0.11"
+    "@nartc/automapper": "5.0.12"
   },
   "peerDependencies": {
     "@nestjs/common": "^6.11.6",

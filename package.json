@@ -93,7 +93,7 @@
     "cz-conventional-changelog": "3.1.0",
     "husky": "4.2.3",
     "lint-staged": "10.0.8",
-    "prettier": "1.19.1",
+    "prettier": "2.0.0",
     "reflect-metadata": "0.1.13",
     "semantic-release": "17.0.4",
     "shelljs": "0.8.3",

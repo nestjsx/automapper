@@ -1,9 +1,10 @@
-import { AutoMapper } from '@nartc/automapper';
+import { AutoMapper, AutoMapperGlobalSettings } from '@nartc/automapper';
 import { DynamicModule, Global, Logger, Module } from '@nestjs/common';
 import { OnModuleInit } from '@nestjs/common/interfaces';
 import { AutomapperExplorer } from './automapper.explorer';
-import { forRootProviders } from './automapper.provider';
+import { forRootProviders, withMapperProviders } from './automapper.provider';
 import { AutomapperModuleRootOptions } from './interfaces';
+import { getWithMapperArgs } from './utils/getWithMapperArgs';
 import { MAPPER_MAP, MapperMap } from './utils/mapperMap';
 import { PROFILE_MAP, ProfileMap } from './utils/profileMap';
 
@@ -13,16 +14,48 @@ export class AutomapperModule implements OnModuleInit {
   private static readonly logger: Logger = new Logger('AutomapperModule');
 
   /**
+   * Initialize a Mapper with name and globalSettings
+   *
+   * @param {string} name - name of the Mapper instance. Default to 'default'
+   * @param {AutoMapperGlobalSettings} globalSettings - Global Settings for the current Mapper instance
+   */
+  static withMapper(
+    name?: string,
+    globalSettings?: AutoMapperGlobalSettings
+  ): DynamicModule;
+  static withMapper(globalSettings?: AutoMapperGlobalSettings): DynamicModule;
+  static withMapper(...args: any[]): DynamicModule {
+    const [name, globalSettings] = getWithMapperArgs(args);
+    const mapper = new AutoMapper();
+    if (globalSettings != null) {
+      mapper.withGlobalSettings(globalSettings);
+    }
+
+    const providers = withMapperProviders(mapper, name);
+    return {
+      module: AutomapperModule,
+      providers: [
+        ...providers,
+        AutomapperExplorer,
+        { provide: PROFILE_MAP, useValue: ProfileMap },
+        { provide: MAPPER_MAP, useValue: MapperMap },
+        { provide: Logger, useValue: this.logger },
+      ],
+      exports: providers,
+    };
+  }
+
+  /**
    * Initialize an AutoMapper instance with a name. Default to "default"
    *
    * Generally, `forRoot` only needs to be ran once to provide a singleton for the whole application
    *
    * @param {AutomapperModuleRootOptions} options
+   * @deprecated Please use withMapper instead
    */
   static forRoot(options?: AutomapperModuleRootOptions): DynamicModule {
     const mapper = new AutoMapper();
 
-    options && options.config && mapper.initialize(options.config);
     const providers = forRootProviders(mapper, options);
 
     return {

@@ -1,4 +1,4 @@
-import { AutoMapper, MappingProfile } from '@nartc/automapper';
+import { AutoMapper, Constructible, MappingProfile } from '@nartc/automapper';
 import { Inject, Injectable, Logger } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { MAPPER_MAP } from './utils/mapperMap';
@@ -12,8 +12,8 @@ export class AutomapperExplorer {
     @Inject(MAPPER_MAP) private readonly mapperMap: Map<string, AutoMapper>,
     @Inject(PROFILE_MAP)
     private readonly profileMap: Map<
-      string,
-      new (...args: any) => MappingProfile
+      Constructible<MappingProfile>,
+      Constructible<MappingProfile>
     >
   ) {}
 
@@ -25,7 +25,7 @@ export class AutomapperExplorer {
     this.profileMap.forEach(this.exploreProfile.bind(this));
   }
 
-  private exploreProfile(value: new (...args: any) => MappingProfile) {
+  private exploreProfile(value: Constructible<MappingProfile>) {
     const mapperKey = this.reflector.get<string>('AUTO_MAPPER_PROFILE', value);
     const mapper = this.mapperMap.get(mapperKey);
 
@@ -36,6 +36,9 @@ export class AutomapperExplorer {
       return;
     }
 
+    this.logger.log(
+      `${value.name} added to Mapper ${mapperKey.split('__').pop()}`
+    );
     mapper.addProfile(value);
   }
 }

@@ -1,4 +1,4 @@
-import { AutoMap, AutoMapper, MappingProfileBase } from '@nartc/automapper';
+import { AutoMap, AutoMapper, mapFrom, ProfileBase } from '@nartc/automapper';
 import { Module } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { AutomapperModule, Profile } from '../src';
@@ -16,14 +16,14 @@ class MockVm {
 }
 
 @Profile()
-class MockProfile extends MappingProfileBase {
+class MockProfile extends ProfileBase {
   constructor(mapper: AutoMapper) {
     super();
     mapper
       .createMap(Mock, MockVm)
       .forMember(
-        d => d.bar,
-        opts => opts.mapFrom(s => s.foo)
+        (d) => d.bar,
+        mapFrom((s) => s.foo)
       )
       .reverseMap();
   }
@@ -35,7 +35,7 @@ class Another {
 }
 
 @Profile()
-class AnotherProfile extends MappingProfileBase {
+class AnotherProfile extends ProfileBase {
   constructor(mapper: AutoMapper) {
     super();
     mapper.createMap(Another, MockVm);

@@ -18,3 +18,18 @@ export const forRootProviders = (
     },
   ];
 };
+
+export const withMapperProviders = (
+  mapper: AutoMapper,
+  name: string
+): Provider[] => {
+  const token = getMapperToken(name);
+  !MapperMap.has(token) && MapperMap.set(token, mapper);
+
+  return [
+    {
+      provide: token,
+      useValue: mapper,
+    },
+  ];
+};

@@ -13,9 +13,9 @@
 
 ## Documentations
 
-This module is a wrapper around `@nartc/automapper` so all usage documentations should be referenced at the link below. 
+This module is a wrapper around `@nartc/automapper` so all usage documentations should be referenced at the link below.
 
-Github Pages [https://nartc.github.io/mapper/](https://nartc.github.io/mapper/)
+Github Pages [https://automapper.netlify.com/](https://automapper.netlify.com/)
 Github Repo [https://github.com/nartc/mapper](https://github.com/nartc/mapper)
 
 ## Features
@@ -31,15 +31,6 @@ Github Repo [https://github.com/nartc/mapper](https://github.com/nartc/mapper)
 - [x] Before/After Callback
 - [x] Naming Conventions (PascalCase and camelCase)
 
-#### Future features:
-
-- [ ] Type Converters - Help needed
-- [ ] Value Transformers
-
-#### Might not support / Need use-case:
-
-- [x] Null Substitution - It makes more sense to use `fromValue()` instead of implement `nullSubstitution()`. Please let me know of a use-case where `nullSubstitution()` makes sense.
-
 Contributions are appreciated.
 
 
@@ -52,61 +43,56 @@ Installing `nestjsx-automapper` will also install `@nartc/automapper`.
 
 **Note 1**: Please make sure that you've read `@nartc/automapper` documentations to familiarize yourself with `AutoMapper`'s terminology and how to setup your `Profile` and such.
 
-1. Import `AutomapperModule` in `AppModule` and call `.forRoot()` method.
+### Setup
+
+1. Import `AutomapperModule` in `AppModule` and call `.withMapper()` method
 
 ```typescript
 @Module({
-  imports: [AutomapperModule.forRoot()]
+  imports: [AutomapperModule.withMapper()],
 })
 export class AppModule {}
 ```
- 
-`AutomapperModule.forRoot()` method expects an `AutomapperModuleRootOptions`. When you call `AutomapperModule.forRoot()`, a new instance of `AutoMapper` will be created with the `name` option. There are two properties on the options that you can pass in:
-- `name`: Name of this `AutoMapper` instance. Default to `"default"`.
-- `config`: A configuration function that will get called automatically.
 
-Both options are optional. If you pass in `config` and configure your `AutoMapper` there, that is totally fine, but the following approach is recommended. Refer to [@nartc/automapper: usage](https://github.com/nartc/mapper#usage) 
+`AutomapperModule.withMapper()` has the following overloads:
 
-2. `AutoMapper` has a concept of `Profile`. A `Profile` is a class that will house some specific mappings related to a specific domain model. Eg: `User` mappings will be housed by `UserProfile`. Refer to [@nartc/automapper: usage](https://github.com/nartc/mapper#usage) for more information regarding `Profile`.
+```typescript
+static withMapper(name?: string, options?: AutoMapperGlobalSettings);
+static withMapper(options?: AutoMapperGlobalSettings);
+```
 
-`nestjsx-automapper` exposes a `@Profile()` to decorate your `Profile` class.
+- `name`: Name of the `AutoMapper` instance being created with `withMapper()`. Default to `"default"`
+- `options`: `AutoMapperGlobalSettings` that will provide the naming conventions for `Source` and `Destination` models globally.
 
-```typescript 
+2. `nestjsx-automapper` exposes a `@Profile()` decorator to decorate your `Profile` classes.
+
+```typescript
 @Profile()
-class UserProfile extends MappingProfileBase {}
+class UserProfile extends ProfileBase {}
 ```
 
-`@Profile(name?: string)` takes in an optional `name` parameter, this is the `name` of the `AutoMapper` instance you want to add this Profile on to.
+`@Profile()` takes in an optional `name` argument. This is the `name` if the `AutoMapper` instance you use to create the instance with `withMapper()`. Default to `"default"`
 
-Even though we use `Decorator` to add the `Profile` to `AutoMapper` instance automatically, things aren't really that automatic without having `TypeScript` to execute the file. We need to import the file somewhere, I'd pick the feature module.
+Usually, `NestJS` will have many **Feature Modules** for each of the **Domain Models**. Hence, a `Profile` should stay in close to where the **feature module** is.
+If you want to separate `Profile` out to a separate file, then you need to make sure that file gets executed by importing it somewhere (again, the module is a good place).
 
-```typescript
-import './user.profiles'; // <-- add this 
-
-@Module({...})
-export class UserModule {}
-
-```
-
-**Note: If you don't want to use a separate file for your Profile, then this import step can be skipped.**
-
-3. Inject an instance of `AutoMapper` in your `Service`:
+3. Inject the `AutoMapper` instance in your `Injectable`
 
 ```typescript
+@Injectable()
 export class UserService {
-  constructor(@InjectMapper() private readonly _mapper: AutoMapper) {}
+  constructor(@InjectMapper() private readonly mapper: AutoMapper) {}
 }
 ```
 
-**Note**: `AutoMapper` is imported from `@nartc/automapper`. `InjectMapper` decorator is imported from `nest-automapper`.
+`@InjectMapper()` takes in an optional `name` argument which will tell the decorator which `AutoMapper` instance to inject. Default to `"default"`
 
-`InjectMapper()` accepts an optional argument `name` which will tell the decorator to inject the right instance of `AutoMapper`. Default to `"default"`.
+> `InjectMapper` is imported from `nestjsx-automapper`. `AutoMapper` is imported from `@nartc/automapper`
 
-4. Use `AutoMapper` on your domain models:
+4. Use `AutoMapper` on your models
 
 ```typescript
-...
+// ...
 const result = await newUser.save();
-return this._mapper.map(result.toJSON(), UserVm);
-...
+return this.mapper.map(result.toJSON(), UserVm, User);
 ```

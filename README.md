@@ -11,6 +11,12 @@
 <h1 align="center">NestJSX Automapper</h1>
 <p align="center">A wrapper around <a href="https://github.com/nartc/mapper">@nartc/automapper</a> to be used with <strong>NestJS</strong> as a <code>Module</code>.</p>
 
+## Migrations
+
+#### Migrate to v3
+
+`forRoot()` method will be deprecated soon (still available in v3). Please use `withMapper()` instead.
+
 ## Documentations
 
 This module is a wrapper around `@nartc/automapper` so all usage documentations should be referenced at the link below.

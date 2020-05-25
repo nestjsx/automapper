@@ -94,14 +94,14 @@
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
     "@nestjs/common": "7.0.13",
-    "@nestjs/core": "7.0.13",
-    "@nestjs/testing": "7.0.13",
+    "@nestjs/core": "7.1.0",
+    "@nestjs/testing": "7.1.0",
     "@types/jest": "25.2.3",
     "commitizen": "4.1.2",
     "coveralls": "3.1.0",
     "cz-conventional-changelog": "3.2.0",
     "husky": "4.2.5",
-    "lint-staged": "10.2.5",
+    "lint-staged": "10.2.6",
     "prettier": "2.0.5",
     "reflect-metadata": "0.1.13",
     "semantic-release": "17.0.8",
@@ -110,7 +110,7 @@
     "tsdx": "0.13.2",
     "tslib": "2.0.0",
     "typedoc": "0.17.7",
-    "typescript": "3.9.2"
+    "typescript": "3.9.3"
   },
   "dependencies": {
     "@nartc/automapper": "6.3.8"

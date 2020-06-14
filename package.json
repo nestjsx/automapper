@@ -101,7 +101,7 @@
     "coveralls": "3.1.0",
     "cz-conventional-changelog": "3.2.0",
     "husky": "4.2.5",
-    "lint-staged": "10.2.9",
+    "lint-staged": "10.2.10",
     "prettier": "2.0.5",
     "reflect-metadata": "0.1.13",
     "semantic-release": "17.0.8",
@@ -113,7 +113,7 @@
     "typescript": "3.9.5"
   },
   "dependencies": {
-    "@nartc/automapper": "6.3.9"
+    "@nartc/automapper": "6.3.11"
   },
   "peerDependencies": {
     "@nestjs/common": ">7.1.1",

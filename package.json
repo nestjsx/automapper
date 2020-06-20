@@ -24,7 +24,8 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "build": "tsdx build --format=cjs",
+    "postbuild": "rm -rf public",
     "build:docs": "typedoc --out docs --target es6 --theme minimal --mode file src",
     "test": "CI=true tsdx test --no-cache",
     "test:cov": "CI=true tsdx test --coverage",

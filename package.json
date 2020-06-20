@@ -83,6 +83,9 @@
       "tsx",
       "js"
     ],
+    "transformIgnorePatterns": [
+      "/node_modules/"
+    ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "/test/"

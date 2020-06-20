@@ -120,7 +120,7 @@
     "@nartc/automapper": "6.3.11"
   },
   "peerDependencies": {
-    "@nestjs/common": ">7.1.1",
+    "@nestjs/common": ">7.2.0",
     "reflect-metadata": ">=0.1.13"
   }
 }

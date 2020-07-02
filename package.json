@@ -114,7 +114,7 @@
     "tsdx": "0.13.2",
     "tslib": "2.0.0",
     "typedoc": "0.17.8",
-    "typescript": "3.9.5"
+    "typescript": "3.9.6"
   },
   "dependencies": {
     "@nartc/automapper": "6.3.13"

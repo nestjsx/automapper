@@ -98,8 +98,8 @@
     "@commitlint/cli": "9.0.1",
     "@commitlint/config-conventional": "9.0.1",
     "@nestjs/common": "7.2.0",
-    "@nestjs/core": "7.2.0",
-    "@nestjs/testing": "7.2.0",
+    "@nestjs/core": "7.3.1",
+    "@nestjs/testing": "7.3.1",
     "@types/jest": "26.0.3",
     "commitizen": "4.1.2",
     "coveralls": "3.1.0",
@@ -114,13 +114,13 @@
     "tsdx": "0.13.2",
     "tslib": "2.0.0",
     "typedoc": "0.17.8",
-    "typescript": "3.9.5"
+    "typescript": "3.9.6"
   },
   "dependencies": {
     "@nartc/automapper": "6.3.13"
   },
   "peerDependencies": {
-    "@nestjs/common": ">7.2.0",
+    "@nestjs/common": ">7.3.1",
     "reflect-metadata": ">=0.1.13"
   }
 }

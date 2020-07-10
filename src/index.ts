@@ -1,5 +1,6 @@
 export * from './automapper.module';
 export * from './interfaces';
+export * from './utils';
 export * from './decorators';
 export {
   AutoMapper,

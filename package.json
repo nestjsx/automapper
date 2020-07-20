@@ -118,7 +118,7 @@
     "typescript": "3.9.7"
   },
   "dependencies": {
-    "@nartc/automapper": "6.3.15"
+    "@nartc/automapper": "6.3.16"
   },
   "peerDependencies": {
     "@nestjs/common": ">7.3.2",

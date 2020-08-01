@@ -68,7 +68,7 @@ static withMapper(options?: AutoMapperGlobalSettings);
 ```
 
 - `name`: Name of the `AutoMapper` instance being created with `withMapper()`. Default to `"default"`
-- `options`: `AutoMapperGlobalSettings` that will provide the naming conventions for `Source` and `Destination` models globally.
+- `options`: Check [AutoMapperGlobalSettings](https://automapper.netlify.app/docs/usages/init/with-global-settings/) for more information
 
 2. `nestjsx-automapper` exposes a `@Profile()` decorator to decorate your `Profile` classes.
 

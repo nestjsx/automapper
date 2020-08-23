@@ -30,6 +30,8 @@ export class AutomapperModule implements OnModuleInit {
     const [name, globalSettings] = getWithMapperArgs(args);
     const mapper = new AutoMapper();
     if (globalSettings != null) {
+      globalSettings.throwError =
+        globalSettings.dev != null ? !globalSettings.dev : undefined;
       mapper.withGlobalSettings(globalSettings);
     }
 

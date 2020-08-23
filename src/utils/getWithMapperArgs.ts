@@ -2,7 +2,7 @@ import { AutoMapperGlobalSettings } from '@nartc/automapper';
 
 export function getWithMapperArgs(
   args: any[]
-): [string, AutoMapperGlobalSettings?] {
+): [string, (AutoMapperGlobalSettings & { dev?: boolean })?] {
   if (!args.length) {
     return [''];
   }

@@ -21,17 +21,13 @@ export class AutomapperModule implements OnModuleInit {
    */
   static withMapper(
     name?: string,
-    globalSettings?: AutoMapperGlobalSettings & { dev?: boolean }
+    globalSettings?: AutoMapperGlobalSettings
   ): DynamicModule;
-  static withMapper(
-    globalSettings?: AutoMapperGlobalSettings & { dev?: boolean }
-  ): DynamicModule;
+  static withMapper(globalSettings?: AutoMapperGlobalSettings): DynamicModule;
   static withMapper(...args: any[]): DynamicModule {
     const [name, globalSettings] = getWithMapperArgs(args);
     const mapper = new AutoMapper();
     if (globalSettings != null) {
-      globalSettings.throwError =
-        globalSettings.dev != null ? !globalSettings.dev : undefined;
       mapper.withGlobalSettings(globalSettings);
     }
 

@@ -104,7 +104,7 @@
     "@types/jest": "26.0.10",
     "commitizen": "4.2.0",
     "coveralls": "3.1.0",
-    "cz-conventional-changelog": "3.2.1",
+    "cz-conventional-changelog": "3.3.0",
     "husky": "4.2.5",
     "lint-staged": "10.2.11",
     "prettier": "2.1.0",

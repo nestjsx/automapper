@@ -15,4 +15,8 @@ export {
   ignore,
   fromValue,
   mapDefer,
+  CamelCaseNamingConvention,
+  PascalCaseNamingConvention,
+  SnakeCaseNamingConvention,
+  NamingConvention,
 } from '@nartc/automapper';
